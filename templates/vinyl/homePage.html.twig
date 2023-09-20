@@ -1,4 +1,10 @@
+{% extends 'base.html.twig' %}
 
+{% block title  %}
+    {{ parent() }} |Vinyl records
+{% endblock %}
+
+{% block body  %}
 <h1> {{ title }} </h1>
 <div class="div">
     Tracks:
@@ -10,3 +16,4 @@
         {% endfor %}
     </ul>
 </div>
+{% endblock %}
