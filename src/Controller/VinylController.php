@@ -2,29 +2,22 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use function Symfony\Component\String\u;
 
-class VinylController
+class VinylController extends AbstractController
 {
     #[Route('/')]
     public function homePage(): Response
     {
-        return new Response("Title: PB and Jams");
+        return $this->render('vinyl/homePage.html.twig', [
+            "title" => "PB & Jams"
+        ]);
+
     }
 
-    #[Route('/browse/{slug}')]
-    public function browse($slug = null): Response
-    {
 
-        if ($slug){
-            $title = "Genre: ". u(str_replace('-', ' ', $slug))->title(true);
-        }else
-        {
-            $title = 'All Genres';
-        }
-        return new  Response( $title);
-    }
 
 }
