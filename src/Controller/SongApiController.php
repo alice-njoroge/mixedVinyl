@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SongApiController extends AbstractController
 {
 
-    #[Route('api/song/{id}')]
+    #[Route('api/song/{id<\d+>}', methods: ['GET'])]
     public function songAPI($id): Response
     {
         $song = [
